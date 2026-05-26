@@ -6,6 +6,7 @@
   <title>Ilja Siahaya</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <audio id="logo-sound" src="pling.mp3" preload="auto"></audio>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -41,7 +42,7 @@
 
     nav .logo {
       font-family: 'DM Serif Display', serif;
-      font-size: 1.2rem;
+      font-size: 1.25rem;
       color: var(--fg);
       text-decoration: none;
       letter-spacing: 0.01em;
@@ -65,10 +66,15 @@
 
     header {
       padding: 7rem 2.5rem 5rem;
-      max-width: 780px;
+      max-width: 960px;
       margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 3rem;
     }
-
+ 
+    header .header-text { flex: 1; }
+ 
     header h1 {
       font-family: 'DM Serif Display', serif;
       font-size: clamp(3rem, 8vw, 5.5rem);
@@ -77,17 +83,45 @@
       letter-spacing: -0.02em;
       margin-bottom: 1.5rem;
     }
-
+ 
     header h1 em {
       font-style: italic;
       color: var(--muted);
     }
-
+ 
     header .tagline {
       font-size: 1.05rem;
       color: var(--muted);
       font-weight: 300;
       max-width: 420px;
+    }
+ 
+    header .header-photo {
+      width: 280px;
+      height: 280px;
+      flex-shrink: 0;
+      border-radius: 16px;
+      overflow: hidden;
+      background: var(--border);
+    }
+ 
+    header .header-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+      display: block;
+    }
+ 
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column-reverse;
+        gap: 2rem;
+      }
+      header .header-photo {
+        width: 100%;
+        height: 100%;
+      }
     }
 
     .divider {
@@ -192,52 +226,62 @@
 <body>
 
 <nav>
-  <a href="#" class="logo">Ilja Siahaya</a>
+  <a href="#" class="logo" onclick="document.getElementById('logo-sound').play()">♫</a>
   <ul>
-    <li><a href="#werk">werk</a></li>
+    <li><a href="werk.html">werk</a></li>
     <li><a href="#over">over</a></li>
     <li><a href="#contact">contact</a></li>
   </ul>
 </nav>
 
 <header>
-  <h1>Ilja Siahaya<!--<br><em>muzikant.</em>--></h1>
-  <p class="tagline">Songwriter | Producer</p>
+  <div class="header-text">    
+    <h1>Ilja Siahaya<!--<br><em>muzikant.</em>--></h1>
+    <p class="tagline">Songwriter | Producer</p>
+  </div>
+  <div class="header-photo">
+    <img src="profile-picture.jpg" alt="Ilja">
+  </div>
 </header>
 
 <hr class="divider">
 
 <section id="werk">
-  <p class="section-label">Werk</p>
+  <p class="section-label">Werk — <a href="werk.html" style="color: var(--muted); text-decoration: underline; text-underline-offset: 3px; font-size: inherit; letter-spacing: inherit;">bekijk alles</a></p>
   <div class="tracks">
 
     <!-- Track 1: vervang de URL na ?url= met jouw SoundCloud-tracklink -->
     <div class="track-item">
       <p class="track-title">Work In Progress</p>
+      <p>Een paar producties waar ik nog mee bezig ben.</p><br>
       <iframe width="100%" height="450" scrolling="no" frameborder="no" allow="autoplay; encrypted-media" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/soundcloud%3Aplaylists%3A2239820651%3Fsecret_token%3Ds-hXK6krqNV4L&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/iljasiahaya" title="Ilja Siahaya" target="_blank" style="color: #cccccc; text-decoration: none;">Ilja Siahaya</a> · <a href="https://soundcloud.com/iljasiahaya/sets/work-in-progress-1/s-hXK6krqNV4L" title="Work In Progress" target="_blank" style="color: #cccccc; text-decoration: none;">Work In Progress</a></div>
     </div>
 
     <!-- Track 2 -->
     <div class="track-item">
       <p class="track-title">Songs</p>
+      <p>Volledig uitgewerkte nummers met vocalen.</p><br>
       <iframe width="100%" height="450" scrolling="no" frameborder="no" allow="autoplay; encrypted-media" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/soundcloud%3Aplaylists%3A2239819940%3Fsecret_token%3Ds-ncqhki4Hz25&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/iljasiahaya" title="Ilja Siahaya" target="_blank" style="color: #cccccc; text-decoration: none;">Ilja Siahaya</a> · <a href="https://soundcloud.com/iljasiahaya/sets/songs-1/s-ncqhki4Hz25" title="Songs" target="_blank" style="color: #cccccc; text-decoration: none;">Songs</a></div>
     </div>
 
     <!-- Track 3 -->
     <div class="track-item">
       <p class="track-title">Schoolopdrachten</p>
+      <p>Hier een paar interessante resultaten van mijn schoolopdrachten.</p><br>
       <iframe width="100%" height="450" scrolling="no" frameborder="no" allow="autoplay; encrypted-media" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/soundcloud%3Aplaylists%3A2239819067%3Fsecret_token%3Ds-paGMArbgtZw&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/iljasiahaya" title="Ilja Siahaya" target="_blank" style="color: #cccccc; text-decoration: none;">Ilja Siahaya</a> · <a href="https://soundcloud.com/iljasiahaya/sets/schoolopdrachten-1/s-paGMArbgtZw" title="Schoolopdrachten" target="_blank" style="color: #cccccc; text-decoration: none;">Schoolopdrachten</a></div>
     </div>
 
     <!-- Track 4 -->
     <div class="track-item">
       <p class="track-title">Elektronische Muziek</p>
+      <p>Elektronische muziek die ik heb gemaakt.</p><br>
       <iframe width="100%" height="450" scrolling="no" frameborder="no" allow="autoplay; encrypted-media" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/soundcloud%3Aplaylists%3A2239818329%3Fsecret_token%3Ds-KK7ggqBVQoF&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/iljasiahaya" title="Ilja Siahaya" target="_blank" style="color: #cccccc; text-decoration: none;">Ilja Siahaya</a> · <a href="https://soundcloud.com/iljasiahaya/sets/elektronische-muziek/s-KK7ggqBVQoF" title="Elektronische Muziek" target="_blank" style="color: #cccccc; text-decoration: none;">Elektronische Muziek</a></div>
     </div>
 
     <!-- Track 5 -->
     <div class="track-item">
       <p class="track-title">Beats</p>
+      <p>Nog wat beats als bonusmateriaal.</p><br>
       <iframe width="100%" height="450" scrolling="no" frameborder="no" allow="autoplay; encrypted-media" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/soundcloud%3Aplaylists%3A2239804229%3Fsecret_token%3Ds-LrcRHD5auTI&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/iljasiahaya" title="Ilja Siahaya" target="_blank" style="color: #cccccc; text-decoration: none;">Ilja Siahaya</a> · <a href="https://soundcloud.com/iljasiahaya/sets/beats/s-LrcRHD5auTI" title="Beats" target="_blank" style="color: #cccccc; text-decoration: none;">Beats</a></div>
     </div>
 
@@ -266,9 +310,9 @@
       <span class="link-label">soundcloud</span>
       soundcloud.com/iljasiahaya
     </a>
-    <a href="https://instagram.com/ilja.siahaya" target="_blank">
-      <span class="link-label">instagram</span>
-      @ilja.siahaya
+    <a href="https://wa.me/qr/GKPX6PROR6PWA1" target="_blank">
+      <span class="link-label">whatsapp</span>
+      +31 6 34198251
     </a>
   </div>
 </section>
