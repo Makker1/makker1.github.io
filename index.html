@@ -97,6 +97,7 @@
     }
  
     header .header-photo {
+      position: relative;
       width: 280px;
       height: 280px;
       flex-shrink: 0;
@@ -104,13 +105,43 @@
       overflow: hidden;
       background: var(--border);
     }
- 
+
+    .photo-dots {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 6px;
+      z-index: 2;
+    }
+
+    .photo-dots span {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.5);
+      transition: background 0.3s;
+    }
+
+    .photo-dots span.active {
+      background: rgba(255,255,255,1);
+    }
+
     header .header-photo img {
+      position: absolute;
+      top: 0; left: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
       object-position: center center;
       display: block;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    header .header-photo img.active {
+      opacity: 1;
     }
  
     @media (max-width: 600px) {
@@ -240,7 +271,12 @@
     <p class="tagline">Songwriter | Producer</p>
   </div>
   <div class="header-photo">
-    <img src="profile-picture.jpg" alt="Ilja">
+    <img src="profile-picture.jpg" alt="Ilja" class="active">
+    <img src="profile-picture-2.jpg" alt="Ilja">
+    <div class="photo-dots">
+      <span class="active"></span>
+      <span></span>
+    </div>
   </div>
 </header>
 
@@ -320,6 +356,19 @@
 <footer>
   © 2026 Ilja Siahaya
 </footer>
+
+<script>
+  const photos = document.querySelectorAll('.header-photo img');
+  const dots = document.querySelectorAll('.photo-dots span');
+  let current = 0;
+  setInterval(() => {
+    photos[current].classList.remove('active');
+    dots[current].classList.remove('active');
+    current = (current + 1) % photos.length;
+    photos[current].classList.add('active');
+    dots[current].classList.add('active');
+  }, 4000);
+</script>
 
 </body>
 </html>
